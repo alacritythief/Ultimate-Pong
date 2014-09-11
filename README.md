@@ -5,12 +5,12 @@ A variation on the game Pong using the Gosu/Ashton libraries. Work in progress (
 
 Player 1 keys:
 --------------
-* W - up
-* S - down
+* W = up
+* S = down
 
 
 Player 2 keys:
 --------------
-* I - up
-* K - down
+* I = up
+* K = down
 
