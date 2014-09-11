@@ -28,5 +28,4 @@ class Ball
 
     bounding(@x, @y, 20, 20)
   end
-
 end
