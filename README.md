@@ -7,7 +7,6 @@ This is a work in progress.
 
 Features to be added:
 ---------------------
-* Opponent AI
 * Alternate game modes
 * Multi-ball
 
@@ -21,3 +20,7 @@ Player 2 keys:
 --------------
 * I = up
 * K = down
+
+Enable AI:
+----------
+Press G to toggle AI

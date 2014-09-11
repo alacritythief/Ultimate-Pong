@@ -18,6 +18,9 @@ class GameWindow < Gosu::Window
     @paddle_left = Paddle.new(self, 10, 250)
     @paddle_right = Paddle.new(self, 770, 250)
     @score = Scoreboard.new(self)
+    @toggle_ai = false
+    @ai_status = "OFF"
+    @ai_on = Gosu::Font.new(self, "helvetica", 20)
     @fireball = Ashton::ParticleEmitter.new 0, 0, 3,
                                            scale: 8,
                                            speed: 1..100,
@@ -33,6 +36,7 @@ class GameWindow < Gosu::Window
     @bouncing_ball.update
     @paddle_left.update
     @paddle_right.update
+    ai
 
     @last_update_at ||= Gosu::milliseconds
     particle_timer = [Gosu::milliseconds - @last_update_at, 100].min * 0.001
@@ -58,7 +62,6 @@ class GameWindow < Gosu::Window
       @bouncing_ball = Ball.new(self)
       @score.player_left += 1
     end
-
   end
 
   def draw
@@ -67,6 +70,24 @@ class GameWindow < Gosu::Window
     @paddle_right.draw
     @score.draw
     @fireball.draw
+    @ai_on.draw("AI #{@ai_status}", 370, 30, 0, 1.0, 1.0, 0xffffffff)
+  end
+
+  def ai
+    if @toggle_ai == true
+      @ai_status = "ON"
+
+      if @bouncing_ball.y > 580
+        @paddle_right.velocity = [-6,-5].sample
+      end
+
+      if @bouncing_ball.y < 0
+        @paddle_right.velocity = [6,5].sample
+      end
+
+    else
+      @ai_status = "OFF"
+    end
   end
 end
 

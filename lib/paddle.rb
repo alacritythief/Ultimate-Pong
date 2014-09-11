@@ -23,9 +23,4 @@ class Paddle
 
     bounding(@x, @y, 20, 100)
   end
-
-  def ai
-    #to be made
-  end
-
 end

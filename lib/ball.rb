@@ -18,17 +18,9 @@ class Ball
     @x += @vx
     @y += @vy
 
-    # if @x > 780
-    #   @vx = -5
-    # end
-
     if @y > 580
       @vy = -5
     end
-
-    # if @x < 0
-    #   @vx = 5
-    # end
 
     if @y < 0
       @vy = 5
