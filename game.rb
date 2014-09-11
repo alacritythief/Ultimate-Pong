@@ -11,7 +11,7 @@ class GameWindow < Gosu::Window
 
   def initialize
     super 800, 600, false
-    self.caption = "Paddle Game"
+    self.caption = "Ultimate Pong"
     @bouncing_ball = Ball.new(self)
     @paddle_left = Paddle.new(self, 10, 250)
     @paddle_right = Paddle.new(self, 770, 250)
