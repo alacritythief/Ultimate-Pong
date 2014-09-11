@@ -1,12 +1,16 @@
 require 'rubygems'
 require 'gosu'
 
+require_relative 'keys'
+require_relative 'bounding_box'
 require_relative 'ball'
 require_relative 'paddle'
 
 require 'pry'
 
 class GameWindow < Gosu::Window
+  include Keys
+
   def initialize
     super 800, 600, false
     self.caption = "Paddle Game"
@@ -31,7 +35,6 @@ class GameWindow < Gosu::Window
     if @bouncing_ball.x < 0 || @bouncing_ball.x > 800
       @bouncing_ball = Ball.new(self)
     end
-
   end
 
   def draw
@@ -39,45 +42,6 @@ class GameWindow < Gosu::Window
     @paddle_left.draw
     @paddle_right.draw
   end
-
-  def button_down(id)
-    if id == Gosu::KbW
-      @paddle_left.velocity += -8
-    end
-
-    if id == Gosu::KbS
-      @paddle_left.velocity += 8
-    end
-
-    if id == Gosu::KbI
-      @paddle_right.velocity += -8
-    end
-
-    if id == Gosu::KbK
-      @paddle_right.velocity += 8
-    end
-
-  end
-
-  def button_up(id)
-    if id == Gosu::KbW
-      @paddle_left.velocity += 8
-    end
-
-    if id == Gosu::KbS
-      @paddle_left.velocity += -8
-    end
-
-    if id == Gosu::KbI
-      @paddle_right.velocity += 8
-    end
-
-    if id == Gosu::KbK
-      @paddle_right.velocity += -8
-    end
-
-  end
-
 end
 
 window = GameWindow.new

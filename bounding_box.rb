@@ -1,7 +1,7 @@
-class BoundingBox
+module BoundingBox
   attr_reader :left, :bottom, :width, :height, :right, :top
 
-  def initialize(left, bottom, width, height)
+  def bounding(left, bottom, width, height)
     @left = left
     @bottom = bottom
     @width = width
@@ -11,7 +11,7 @@ class BoundingBox
     @top = @bottom + @height
   end
 
-  def contains_point?(x,y)
+  def collide?(x,y)
     if x >= @left && x <= @right && y >= @bottom && y <= @top
       true
     else

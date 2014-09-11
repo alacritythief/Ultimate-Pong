@@ -1,4 +1,5 @@
 class Ball
+  include BoundingBox
   attr_accessor :x, :y, :vx, :left, :right, :top, :bottom
 
   def initialize(window)
@@ -34,16 +35,6 @@ class Ball
     end
 
     bounding(@x, @y, 20, 20)
-  end
-
-  def bounding(left, bottom, width, height)
-    @left = left
-    @bottom = bottom
-    @width = width
-    @height = height
-
-    @right = @left + @width
-    @top = @bottom + @height
   end
 
 end
