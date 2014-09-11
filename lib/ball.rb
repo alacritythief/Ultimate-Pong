@@ -3,7 +3,7 @@ class Ball
   attr_accessor :x, :y, :vx, :left, :right, :top, :bottom
 
   def initialize(window)
-    @ball_image = Gosu::Image.new(window, "ball.png", false)
+    @ball_image = Gosu::Image.new(window, "img/ball.png", false)
     @x = 400
     @y = rand(10..590)
     @vx = @vy = [5, -5].sample

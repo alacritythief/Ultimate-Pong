@@ -3,7 +3,7 @@ class Paddle
   attr_accessor :velocity, :x, :y
 
   def initialize(window, x, y)
-    @paddle_image = Gosu::Image.new(window, "paddle.png", false)
+    @paddle_image = Gosu::Image.new(window, "img/paddle.png", false)
     @x = x
     @y = y
     @velocity = 0

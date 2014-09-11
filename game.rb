@@ -1,12 +1,10 @@
 require 'rubygems'
 require 'gosu'
 
-require_relative 'keys'
-require_relative 'bounding_box'
-require_relative 'ball'
-require_relative 'paddle'
-
-require 'pry'
+require_relative 'lib/keys'
+require_relative 'lib/bounding_box'
+require_relative 'lib/ball'
+require_relative 'lib/paddle'
 
 class GameWindow < Gosu::Window
   include Keys
@@ -24,7 +22,7 @@ class GameWindow < Gosu::Window
     @paddle_left.update
     @paddle_right.update
 
-    if @paddle_left.collide?(@bouncing_ball.x, @bouncing_ball.y) == true
+    if @paddle_left.collide?(@bouncing_ball.left, @bouncing_ball.top) == true
       @bouncing_ball.vx = +5
     end
 
@@ -32,7 +30,7 @@ class GameWindow < Gosu::Window
       @bouncing_ball.vx = -5
     end
 
-    if @bouncing_ball.x < 0 || @bouncing_ball.x > 800
+    if @bouncing_ball.x < -20 || @bouncing_ball.right > 820
       @bouncing_ball = Ball.new(self)
     end
   end
