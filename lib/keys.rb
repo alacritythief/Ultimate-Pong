@@ -15,7 +15,6 @@ module Keys
     if id == Gosu::KbK
       @paddle_right.velocity += 8
     end
-
   end
 
     def button_up(id)

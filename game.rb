@@ -5,6 +5,7 @@ require_relative 'lib/keys'
 require_relative 'lib/bounding_box'
 require_relative 'lib/ball'
 require_relative 'lib/paddle'
+require_relative 'lib/scoreboard'
 
 class GameWindow < Gosu::Window
   include Keys
@@ -15,6 +16,7 @@ class GameWindow < Gosu::Window
     @bouncing_ball = Ball.new(self)
     @paddle_left = Paddle.new(self, 10, 250)
     @paddle_right = Paddle.new(self, 770, 250)
+    @score = Scoreboard.new(self)
   end
 
   def update
@@ -30,15 +32,23 @@ class GameWindow < Gosu::Window
       @bouncing_ball.vx = -5
     end
 
-    if @bouncing_ball.x < -20 || @bouncing_ball.right > 820
+    if @bouncing_ball.x < -30
       @bouncing_ball = Ball.new(self)
+      @score.player_left += 1
     end
+
+    if @bouncing_ball.right > 830
+      @bouncing_ball = Ball.new(self)
+      @score.player_right += 1
+    end
+
   end
 
   def draw
     @bouncing_ball.draw
     @paddle_left.draw
     @paddle_right.draw
+    @score.draw
   end
 end
 
