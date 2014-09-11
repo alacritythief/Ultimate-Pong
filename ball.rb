@@ -3,8 +3,9 @@ class Ball
 
   def initialize(window)
     @ball_image = Gosu::Image.new(window, "ball.png", false)
-    @x = @y = rand(300..500)
-    @vx = @vy = 5
+    @x = 400
+    @y = rand(10..590)
+    @vx = @vy = [5, -5].sample
     bounding(@x, @y, 20, 20)
   end
 

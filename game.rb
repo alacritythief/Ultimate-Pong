@@ -27,6 +27,11 @@ class GameWindow < Gosu::Window
     if @paddle_right.collide?(@bouncing_ball.right, @bouncing_ball.bottom) == true
       @bouncing_ball.vx = -5
     end
+
+    if @bouncing_ball.x < 0 || @bouncing_ball.x > 800
+      @bouncing_ball = Ball.new(self)
+    end
+
   end
 
   def draw
