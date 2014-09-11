@@ -77,11 +77,11 @@ class GameWindow < Gosu::Window
     if @toggle_ai == true
       @ai_status = "ON"
 
-      if @bouncing_ball.y > 580
+      if @bouncing_ball.y > 580 && @bouncing_ball.x > 0
         @paddle_right.velocity = [-6,-5].sample
       end
 
-      if @bouncing_ball.y < 0
+      if @bouncing_ball.y < 0 && @bouncing_ball.x > 0
         @paddle_right.velocity = [6,5].sample
       end
 
