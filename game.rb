@@ -23,7 +23,10 @@ class GameWindow < Gosu::Window
     @score = Scoreboard.new(self)
 
     @toggle_ai = false
-    @ai_status = "OFF"
+    @toggle_demo = false
+    @toggle_ee = false
+
+    @ai_status = "AI OFF"
 
     @ai_on = Gosu::Font.new(self, "helvetica", 20)
     @ready_to_serve = Gosu::Font.new(self, "helvetica", 20)
@@ -35,15 +38,7 @@ class GameWindow < Gosu::Window
     @paddle_right.update
 
     computer_ai
-
-    if @paddle_left.collide?(@bouncing_ball.left, @bouncing_ball.top) == true
-      @bouncing_ball.vx = +5
-    end
-
-    if @paddle_right.collide?(@bouncing_ball.right, @bouncing_ball.bottom) == true
-      @bouncing_ball.vx = -5
-    end
-
+    ball_collision
     scoring
   end
 
@@ -61,33 +56,55 @@ class GameWindow < Gosu::Window
     end
   end
 
-  def reset_paddle_positions
-    @paddle_left.x = 10
-    @paddle_left.y = 250
-    @paddle_right.x = 770
-    @paddle_right.y = 250
-  end
-
   def draw
     @bouncing_ball.draw
     @paddle_left.draw
     @paddle_right.draw
     @score.draw
-    @ai_on.draw("AI #{@ai_status}", 370, 30, 0, 1.0, 1.0, 0xffffffff)
+    if @toggle_ai == true
+      @ai_on.draw("#{@ai_status}", 370, 30, 0, 1.0, 1.0, 0xffffffff)
+    elsif @toggle_ai == false && @toggle_demo == true
+      @ai_on.draw("#{@ai_status}", 350, 30, 0, 1.0, 1.0, 0xffffffff)
+    end
 
     if @bouncing_ball.in_play? == false
       @ready_to_serve.draw("Press SPACE to serve!", 310, 300, 0, 1.0, 1.0, 0xffffffff)
     end
   end
 
+  def reset_paddle_positions
+    @paddle_right.x = 770
+    @paddle_right.y = 250
+    @paddle_left.x = 10
+    @paddle_left.y = 250
+  end
+
+  def ball_collision
+    if @paddle_left.collide?(@bouncing_ball.left, @bouncing_ball.bottom) == true || @paddle_left.collide?(@bouncing_ball.left, @bouncing_ball.top) == true
+      if @bouncing_ball.speed < 20
+        @bouncing_ball.speed += 0.5
+      end
+      @bouncing_ball.vx = +5 + @bouncing_ball.speed
+    end
+
+    if @paddle_right.collide?(@bouncing_ball.right, @bouncing_ball.bottom) == true || @paddle_right.collide?(@bouncing_ball.right, @bouncing_ball.top) == true
+      if @bouncing_ball.speed < 20
+        @bouncing_ball.speed += 0.5
+      end
+      @bouncing_ball.vx = -5 + -(@bouncing_ball.speed)
+    end
+  end
+
   def computer_ai
     if @toggle_ai == true
-      @ai_status = "ON"
-
-      @paddle_right.velocity = @bouncing_ball.vy
-
+      @ai_status = "AI ON"
+      @paddle_right.velocity = @bouncing_ball.vy * [0.85,0.85,0.6,0.85,0.6].sample
+    elsif @toggle_demo == true
+      @ai_status = "DEMO MODE"
+      @paddle_right.y = @bouncing_ball.y - 40
+      @paddle_left.y = @bouncing_ball.y - 40
     else
-      @ai_status = "OFF"
+      @ai_status = "AI OFF"
     end
   end
 end

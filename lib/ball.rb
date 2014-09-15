@@ -61,11 +61,11 @@ class Ball
     @y += @vy
 
     if @y > 580
-     @vy = -5
+     @vy = -5 + -(speed)
     end
 
     if @y < 0
-      @vy = 5
+      @vy = 5 + speed
     end
 
     bounding(@x, @y, 20, 20)
