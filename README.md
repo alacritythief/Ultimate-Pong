@@ -1,13 +1,14 @@
 Ultimate-Pong
 =============
 
-A variation on the game Pong using the Gosu/Ashton libraries. The game features box collision detection, local multiplayer, particle effects, and scoring.
+A variation on the game Pong using the Gosu/Ashton libraries. The game features box collision detection, local multiplayer, particle effects, AI, and scoring.
 
 This is a work in progress.
 
 Features to be added:
 ---------------------
-* Alternate game modes
+* 'Secret' mode
+* Boss mode
 * Multi-ball
 
 Player 1 keys:
@@ -24,3 +25,4 @@ Player 2 keys:
 Enable AI:
 ----------
 Press G to toggle 2nd Player AI
+Press T to toggle DEMO MODE (both side AI)

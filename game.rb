@@ -15,17 +15,18 @@ class GameWindow < Gosu::Window
     super 800, 600, false
     self.caption = "Ultimate Pong"
 
-    @bouncing_ball = Ball.new(self, 40, 290)
+    @toggle_ai = false
+    @toggle_demo = false
+    @toggle_ee = false
+
+    if @toggle_ee == false
+      @bouncing_ball = Ball.new(self, 40, 290)
+    end
 
     @paddle_left = Paddle.new(self, 10, 250)
     @paddle_right = Paddle.new(self, 770, 250)
 
     @score = Scoreboard.new(self)
-
-    @toggle_ai = false
-    @toggle_demo = false
-    @toggle_ee = false
-
     @ai_status = "AI OFF"
 
     @ai_on = Gosu::Font.new(self, "helvetica", 20)
