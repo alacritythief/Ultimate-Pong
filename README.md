@@ -24,5 +24,5 @@ Player 2 keys:
 
 Enable AI:
 ----------
-Press G to toggle 2nd Player AI
-Press T to toggle DEMO MODE (both side AI)
+* Press G to toggle 2nd Player AI
+* Press T to toggle DEMO MODE (both side AI)
