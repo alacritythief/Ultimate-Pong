@@ -43,11 +43,11 @@ class EeBall
     if @ee_image == "eric"
       @quote = ["...Okay.", "...Cool.", "I like cats.", "Vim is awesome"].sample
     elsif @ee_image == "adam"
-      @quote = ["Emacs is better.", "Foo.", "Bar.", "I can play Flappy Bird all day"].sample
+      @quote = ["Emacs is better.", "Foo.", "Bar.", "I can play Flappy Bird all day."].sample
     elsif @ee_image == "helen"
-      @quote = ["OH!", "Neat!", "Great!", "Have a fortune cookie!"].sample
+      @quote = ["OH!", "Neat!", "Great!", "Have a fortune cookie!", "oh wow", "Do you want a clinic on that?"].sample
     elsif @ee_image == "richard"
-      @quote = ["It's about time I fixed that.", "Uhh...", "Yeah."].sample
+      @quote = ["It's about time I fixed that.", "Uhh...", "Yeah.","Let's put a binding.pry in there."].sample
     elsif @ee_image == "faizaan"
       @quote = ["Accio Rubinius!", "I'm reading brain waves.", "Voldemort sux eggs."].sample
     end

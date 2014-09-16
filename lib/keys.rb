@@ -20,6 +20,14 @@ module Keys
       #multiball
     end
 
+    if id == Gosu::KbF1
+      if @theme_song.playing? == false
+        @theme_song.play(true)
+      elsif @theme_song.playing? == true
+        @theme_song.pause
+      end
+    end
+
     if id == Gosu::KbF2
       if @toggle_ai == false
         @toggle_demo = false

@@ -22,6 +22,10 @@ class GameWindow < Gosu::Window
     @toggle_demo = false
     @toggle_ee = false
 
+    @theme_song = Gosu::Song.new(self, "snd/soundtrack.mp3")
+    @theme_song.play(true)
+    @collide_sound = Gosu::Sample.new(self, "snd/collide.mp3")
+
     summon_ball_type(self, 40, 290)
 
     @paddle_left = Paddle.new(self, 10, 250)
@@ -32,6 +36,7 @@ class GameWindow < Gosu::Window
 
     @ai_on = Gosu::Font.new(self, "helvetica", 20)
     @ready_to_serve = Gosu::Font.new(self, "helvetica", 20)
+    @music_toggle = Gosu::Font.new(self, "helvetica", 20)
   end
 
   def update
@@ -73,6 +78,11 @@ class GameWindow < Gosu::Window
       @ai_on.draw("#{@ai_status}", 345, 30, 0, 1.0, 1.0, 0xffffffff)
     end
 
+    if @theme_song.playing? == false
+      @music_toggle.draw("MUSIC OFF", 350, 570, 0, 1.0, 1.0, 0xffffffff)
+    end
+
+
     if @bouncing_ball.in_play? == false
       @ready_to_serve.draw("Press SPACE to serve!", 310, 300, 0, 1.0, 1.0, 0xffffffff)
     end
@@ -98,6 +108,7 @@ class GameWindow < Gosu::Window
       if @bouncing_ball.speed < 20
         @bouncing_ball.speed += 0.5
       end
+      @collide_sound.play(0.5,1,false)
       @bouncing_ball.vx = +5 + @bouncing_ball.speed
       @bouncing_ball.quotes
     end
@@ -106,6 +117,7 @@ class GameWindow < Gosu::Window
       if @bouncing_ball.speed < 20
         @bouncing_ball.speed += 0.5
       end
+      @collide_sound.play(0.5,1,false)
       @bouncing_ball.vx = -5 + -(@bouncing_ball.speed)
       @bouncing_ball.quotes
     end
