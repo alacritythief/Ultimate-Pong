@@ -45,7 +45,7 @@ class EeBall
     elsif @ee_image == "adam"
       @quote = ["Emacs is better.", "Foo", "Bar", "I can play flappy bird all day"].sample
     elsif @ee_image == "helen"
-      @quote = ["Oh!", "Neat!", "Great!", "Have a fortune cookie!"].sample
+      @quote = ["OH!", "Neat!", "Great!", "Have a fortune cookie!"].sample
     elsif @ee_image == "richard"
       @quote = ["It's about time I fixed that.", "Uhh...", "Yeah."].sample
     elsif @ee_image == "faizaan"

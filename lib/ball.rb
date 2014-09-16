@@ -18,7 +18,7 @@ class Ball
                                            max_particles: 1000,
                                            offset: 0..10,
                                            interval: 0.0010,
-                                           color: Gosu::Color.rgba(255, 150, 0, 50),
+                                           color: Gosu::Color.rgba(255, 100, 0, 50),
                                            fade: 70,
                                            gravity: 0
 

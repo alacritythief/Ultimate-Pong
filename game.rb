@@ -1,3 +1,5 @@
+# Ultimate Pong v1 - by Andy Wong
+
 require 'rubygems'
 require 'gosu'
 require 'ashton'
