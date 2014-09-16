@@ -20,7 +20,7 @@ module Keys
       #multiball
     end
 
-    if id == Gosu::KbG
+    if id == Gosu::KbF2
       if @toggle_ai == false
         @toggle_demo = false
         @toggle_ai = true
@@ -30,7 +30,7 @@ module Keys
       end
     end
 
-    if id == Gosu::KbT
+    if id == Gosu::KbF3
       if @toggle_demo == false
         @toggle_ai = false
         @toggle_demo = true
@@ -41,7 +41,7 @@ module Keys
       end
     end
 
-    if id == Gosu::KbB
+    if id == Gosu::KbF4
       if @bouncing_ball.in_play? == false
         if @toggle_ee == false
           @toggle_ee = true
@@ -58,6 +58,11 @@ module Keys
         @bouncing_ball.serve = true
       end
     end
+
+    if id == Gosu::KbF5
+      @score.clear
+    end
+
   end
 
   def button_up(id)

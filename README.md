@@ -7,7 +7,6 @@ This is a work in progress.
 
 Features to be added:
 ---------------------
-* 'Secret' mode
 * Boss mode
 * Multi-ball
 
@@ -16,13 +15,14 @@ Player 1 keys:
 * W = up
 * S = down
 
-
 Player 2 keys:
 --------------
 * I = up
 * K = down
 
-Enable AI:
+Other keys:
 ----------
-* Press G to toggle 2nd Player AI
-* Press T to toggle DEMO MODE (both side AI)
+* F2 = Toggle 2nd Player AI
+* F3 = Toggle Demo Mode (P1 + P2 perfect AI)
+* F4 = Toggle "Special" mode
+* F5 = Clear Scores
