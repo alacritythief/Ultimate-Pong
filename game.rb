@@ -70,7 +70,7 @@ class GameWindow < Gosu::Window
     if @toggle_ai == true
       @ai_on.draw("#{@ai_status}", 370, 30, 0, 1.0, 1.0, 0xffffffff)
     elsif @toggle_ai == false && @toggle_demo == true
-      @ai_on.draw("#{@ai_status}", 350, 30, 0, 1.0, 1.0, 0xffffffff)
+      @ai_on.draw("#{@ai_status}", 345, 30, 0, 1.0, 1.0, 0xffffffff)
     end
 
     if @bouncing_ball.in_play? == false
