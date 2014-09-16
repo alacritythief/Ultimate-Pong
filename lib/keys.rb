@@ -41,6 +41,18 @@ module Keys
       end
     end
 
+    if id == Gosu::KbB
+      if @bouncing_ball.in_play? == false
+        if @toggle_ee == false
+          @toggle_ee = true
+          summon_ball_type(self, 40, 250)
+        elsif @toggle_ee == true
+          @toggle_ee = false
+          summon_ball_type(self, 40, 290)
+        end
+      end
+    end
+
     if id == Gosu::KbSpace
       if @bouncing_ball.in_play? == false
         @bouncing_ball.serve = true

@@ -1,6 +1,7 @@
 class Ball
   include BoundingBox
   attr_accessor :x, :y, :vx, :vy, :left, :right, :top, :bottom, :serve, :speed
+  attr_reader :quotes
 
   def initialize(window, x, y)
     @ball_image = Gosu::Image.new(window, "img/ball.png", false)
@@ -27,6 +28,10 @@ class Ball
   def draw
     @ball_image.draw(@x, @y, 1)
     @particle.draw
+  end
+
+  def quotes
+    nil
   end
 
   def in_play?

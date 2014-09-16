@@ -5,6 +5,7 @@ require 'ashton'
 require_relative 'lib/keys'
 require_relative 'lib/bounding_box'
 require_relative 'lib/ball'
+require_relative 'lib/ee_ball'
 require_relative 'lib/paddle'
 require_relative 'lib/scoreboard'
 
@@ -19,9 +20,7 @@ class GameWindow < Gosu::Window
     @toggle_demo = false
     @toggle_ee = false
 
-    if @toggle_ee == false
-      @bouncing_ball = Ball.new(self, 40, 290)
-    end
+    summon_ball_type(self, 40, 290)
 
     @paddle_left = Paddle.new(self, 10, 250)
     @paddle_right = Paddle.new(self, 770, 250)
@@ -45,13 +44,17 @@ class GameWindow < Gosu::Window
 
   def scoring
     if @bouncing_ball.x < -30
-      @bouncing_ball = Ball.new(self, 730, 290)
+      if @toggle_ee == true
+        summon_ball_type(self, 660, 290)
+      else
+        summon_ball_type(self, 730, 290)
+      end
       @score.player_right += 1
       reset_paddle_positions
     end
 
     if @bouncing_ball.right > 830
-      @bouncing_ball = Ball.new(self, 40, 290)
+      summon_ball_type(self, 40, 290)
       @score.player_left += 1
       reset_paddle_positions
     end
@@ -73,6 +76,14 @@ class GameWindow < Gosu::Window
     end
   end
 
+  def summon_ball_type(window, x, y)
+    if @toggle_ee == true
+      @bouncing_ball = EeBall.new(window, x, 250)
+    elsif @toggle_ee == false
+      @bouncing_ball = Ball.new(window, x, y)
+    end
+  end
+
   def reset_paddle_positions
     @paddle_right.x = 770
     @paddle_right.y = 250
@@ -86,6 +97,7 @@ class GameWindow < Gosu::Window
         @bouncing_ball.speed += 0.5
       end
       @bouncing_ball.vx = +5 + @bouncing_ball.speed
+      @bouncing_ball.quotes
     end
 
     if @paddle_right.collide?(@bouncing_ball.right, @bouncing_ball.bottom) == true || @paddle_right.collide?(@bouncing_ball.right, @bouncing_ball.top) == true
@@ -93,6 +105,7 @@ class GameWindow < Gosu::Window
         @bouncing_ball.speed += 0.5
       end
       @bouncing_ball.vx = -5 + -(@bouncing_ball.speed)
+      @bouncing_ball.quotes
     end
   end
 
@@ -102,8 +115,8 @@ class GameWindow < Gosu::Window
       @paddle_right.velocity = @bouncing_ball.vy * [0.85,0.85,0.6,0.85,0.6].sample
     elsif @toggle_demo == true
       @ai_status = "DEMO MODE"
-      @paddle_right.y = @bouncing_ball.y - 40
-      @paddle_left.y = @bouncing_ball.y - 40
+      @paddle_right.y = @bouncing_ball.y - 50 + @bouncing_ball.height / 2
+      @paddle_left.y = @bouncing_ball.y - 50 + @bouncing_ball.height / 2
     else
       @ai_status = "AI OFF"
     end
