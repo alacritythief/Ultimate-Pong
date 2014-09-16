@@ -9,7 +9,7 @@ This is a work in progress.
 
 ![Screenshot 2](https://raw.githubusercontent.com/alacritythief/Ultimate-Pong/master/screenshots/2.png)
 
-![Screenshot 3](https://raw.githubusercontent.com/alacritythief/Ultimate-Pong/master/screenshots/1.png)
+![Screenshot 3](https://raw.githubusercontent.com/alacritythief/Ultimate-Pong/master/screenshots/3.png)
 
 Installation
 ------------
