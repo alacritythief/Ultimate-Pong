@@ -7,7 +7,7 @@ This is a work in progress.
 
 Installation
 ------------
-Clone or download the repository, then ```bundle install``` in it's directory.
+Clone or download the repository, then ```bundle install``` in its directory.
 
 Once everything is set, run ```ruby game.rb```!
 
