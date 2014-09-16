@@ -5,11 +5,11 @@ A variation on the game Pong using the Gosu/Ashton libraries. The game features 
 
 This is a work in progress.
 
-![Screenshot 1](/files/screenshots/1.png)
+![Screenshot 1](https://raw.githubusercontent.com/alacritythief/Ultimate-Pong/master/screenshots/1.png)
 
-![Screenshot 2](/files/screenshots/2.png)
+![Screenshot 2](https://raw.githubusercontent.com/alacritythief/Ultimate-Pong/master/screenshots/2.png)
 
-![Screenshot 3](/files/screenshots/3.png)
+![Screenshot 3](https://raw.githubusercontent.com/alacritythief/Ultimate-Pong/master/screenshots/1.png)
 
 Installation
 ------------
