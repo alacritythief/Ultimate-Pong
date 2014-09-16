@@ -5,11 +5,17 @@ A variation on the game Pong using the Gosu/Ashton libraries. The game features 
 
 This is a work in progress.
 
+![Screenshot 1](/files/screenshots/1.png)
+
+![Screenshot 2](/files/screenshots/2.png)
+
+![Screenshot 3](/files/screenshots/3.png)
+
 Installation
 ------------
-Clone or download the repository, then ```bundle install``` in its directory.
+Clone or download the repository, then `bundle` in its directory.
 
-Once everything is set, run ```ruby game.rb```!
+Once everything is set, run `ruby game.rb`!
 
 Features to be added:
 ---------------------
